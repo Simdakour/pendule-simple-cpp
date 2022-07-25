@@ -13,7 +13,7 @@ int main(void)
 	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Pendule simple");
 
 	// Define deltatime
-	float dt = 0.1f;
+	float dt = 0.01f;
 
 	while (window.isOpen())
 	{
@@ -26,16 +26,17 @@ int main(void)
 				window.close();
 		}
 
-		
+		// Use the update methode to compute the animation
 		p1.UpdateEuler(dt);
 		p2.UpdateVerlet(dt);
 
 		window.clear();
+		
+		// Draw all pendulum graphic elements
 		p1.Show(&window);
 		p2.Show(&window);
+
 		window.display();
 	}
-
-	
 	return (0);
 }
